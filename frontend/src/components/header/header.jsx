@@ -2,7 +2,7 @@ import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { AppRoute } from "../../../utils/const"
+import { AppRoute } from "../../utils/const"
 
 const link = {
   color: "#adb5bd",
