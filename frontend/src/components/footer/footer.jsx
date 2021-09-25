@@ -1,13 +1,13 @@
-import React, { Fragment } from "react";
+import React from "react";
+import { Navbar, Container } from "react-bootstrap";
 
 const Footer = () => {
-  return(
-    <Fragment>
-      <footer className="footer text-center" style={{width: '100%', backgroundColor: '#282C34', color: 'white'}}>
-        © 2021,  Мой Город - moigorod.ru
-      </footer>
-    </Fragment>
-  )
+  return (
+    <Navbar bg="dark" variant="dark" expand="lg" style={{ height: 50 }}>
+      <Container>
+        <Navbar.Brand style={{ fontSize: 20 }}>@Мой Город</Navbar.Brand>
+      </Container>
+    </Navbar>
+  );
 };
-
 export default Footer;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Col, Row, Container, Card } from "react-bootstrap";
-import CardActivity from "../../components/app/card-activity/card";
+import CardActivity from "../../components/card-activity/card";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
 
