@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, Fragment} from "react";
 import { Nav, Navbar, NavDropdown, Button } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
@@ -59,11 +59,9 @@ const Header = () => {
                 to={ AppRoute.INITIATIVES }
                 style={link}
                 activeStyle={linkActive}
-
               >
                 Инициативы
               </NavLink>
-            
             <NavLink
               className="nav-link"
               exact
@@ -73,6 +71,18 @@ const Header = () => {
             >
               Мероприятия
             </NavLink>
+            {width<=991?
+              <Fragment>
+                <NavLink exact to={ AppRoute.ACCOUNT } className="nav-link" style={link} activeStyle={linkActive}>
+                  Личный кабинет 
+                </NavLink>
+                <Button className="col-4 col-md-2" >
+                  Выйти
+                </Button>
+              </Fragment>
+              :
+              null   
+            }
           </Nav>
           {width>991?
           <Nav>
