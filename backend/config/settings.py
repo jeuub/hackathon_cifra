@@ -27,6 +27,7 @@ INSTALLED_APPS = [
 
     'authentication',
     'initiative',
+    'event',
 ]
 
 MIDDLEWARE = [
@@ -96,6 +97,10 @@ LANGUAGE_CODE = 'ru-ru'
 TIME_ZONE = 'Europe/Moscow'
 
 USE_TZ = True
+
+USE_L10N = False
+
+DATE_INPUT_FORMATS = ['%d-%m-%Y']
 
 # Static & media folders configuration
 STATIC_URL = '/static/'
