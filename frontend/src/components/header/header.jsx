@@ -59,7 +59,7 @@ const Header = () => {
                 to={ AppRoute.INITIATIVES }
                 style={link}
                 activeStyle={linkActive}
-                
+
               >
                 Инициативы
               </NavLink>
