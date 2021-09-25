@@ -1,0 +1,22 @@
+# code editors
+.DS_Store
+Thumbs.db
+.idea
+*.sublime*
+.vscode
+
+# backend
+
+backend/venv/
+backend/.env
+backend/__pycache__/
+backend/migrations/
+backend/static/
+backend/media/
+
+#forntend
+
+Frontend/*.log*
+Frontend/node_modules/
+Frontend/public/bundle.js
+Frontend/public/bundle.js.map
