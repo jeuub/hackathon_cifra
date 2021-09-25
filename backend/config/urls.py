@@ -1,3 +1,4 @@
+from event.views import EventViewSet
 from initiative.views import InitiativeViewSet
 from django.contrib import admin
 from django.urls import path, include
@@ -15,12 +16,13 @@ from rest_framework_simplejwt.views import (
 
 router = DefaultRouter()
 router.register('initiative', InitiativeViewSet, basename='initiative')
+router.register('event', EventViewSet, basename='event')
 
 urlpatterns = [
     path("api/", include(router.urls)),
     path('admin/', admin.site.urls),
 
-    path("api/initiative/signature/<int:pk>/", AddSignature.as_view(), name=""),
+    path("api/initiative/signature/<int:pk>/", AddSignature.as_view()),
 
     path('api/user/', include('authentication.urls')),
 
