@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Col, Row, Container, Card, ProgressBar } from "react-bootstrap";
+import { Button, Row, Container} from "react-bootstrap";
 import { useState, useEffect } from "react";
 
 import InitiativeCard from "../../components/initiative-card/initiative-card"
@@ -34,11 +34,21 @@ const initiatives = (props) => {
   return (
     <Container>
       <h1 className="text-center">Инициативы</h1>
-      <div className="d-flex flex-column m-auto" style={{maxWidth: '400px'}} >
+      <Row xs={1} md={3}>
         <InitiativeCard />
+          <InitiativeCard />
         <InitiativeCard />
+      </Row>
+      <Row xs={1} md={3}>
         <InitiativeCard />
-      </div> 
+          <InitiativeCard />
+        <InitiativeCard />
+      </Row>
+      <Row> 
+        <Button style={{ width: 150, margin: "20px auto" }}>
+          Загрузить ещё
+        </Button>
+      </Row>  
     </Container>
   );
 };

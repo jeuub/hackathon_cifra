@@ -17,4 +17,5 @@ const CardMain = ({ src }) => {
     </Col>
   );
 };
+
 export default CardMain;
