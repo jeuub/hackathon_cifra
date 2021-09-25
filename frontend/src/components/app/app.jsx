@@ -9,6 +9,7 @@ import Header from "../header/header";
 import RegistrationPage from "../../pages/registration-page/registration-page";
 import AuthPage from "../../pages/auth-page/auth-page";
 import Initiatives from "../../pages/initiatives/initiatives";
+import AccountPage from "../../pages/account-page/account-page";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route exact path="/activity" render={() => <ActivityPage />} />
         <Route exact path="/registration" render={() => <RegistrationPage />} />
         <Route exact path="/authorization" render={() => <AuthPage />} />
+        <Route exact path="/account" render={() => <AccountPage />} />
       </Switch>
       <Footer />
     </Router>
