@@ -13,7 +13,7 @@ const linkActive = {
 
 const Header = () => {
   return (
-    <Navbar bg="light" expand="lg" style={{ fontSize: 16, height: 50 }}>
+    <Navbar bg="light" expand="lg" style={{ fontSize: 16}}>
       <Container>
         <Navbar.Brand style={{ fontSize: 18, color: "#d9534f" }}>
           Мой Город
@@ -29,7 +29,7 @@ const Header = () => {
             <Nav.Link>
               <NavLink
                 exact
-                to="/initiative"
+                to="/initiatives"
                 style={link}
                 activeStyle={linkActive}
               >
