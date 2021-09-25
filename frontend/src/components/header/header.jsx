@@ -67,7 +67,7 @@ const Header = () => {
             <NavLink
               className="nav-link"
               exact
-              to="/activities"
+              to={ AppRoute.ACTIVITIES }
               style={link}
               activeStyle={linkActive}
             >
@@ -77,7 +77,7 @@ const Header = () => {
           {width>991?
           <Nav>
             <NavDropdown title="Аккаунт" id="collasible-nav-dropdown">
-                <NavLink className="dropdown-item" exact to="/account" style={link} activeStyle={linkActive}>
+                <NavLink className="dropdown-item" exact to={ AppRoute.ACCOUNT } style={link} activeStyle={linkActive}>
                   Личный кабинет 
                 </NavLink>
               <NavDropdown.Divider />
