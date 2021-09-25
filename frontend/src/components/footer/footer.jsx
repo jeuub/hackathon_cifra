@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 const Footer = () => {
   return(
     <Fragment>
-      <footer className="footer" style={{width: '100%', backgroundColor: '#282C34', color: 'white'}} className="text-center">
+      <footer className="footer text-center" style={{width: '100%', backgroundColor: '#282C34', color: 'white'}}>
         © 2021,  Мой Город - moigorod.ru
       </footer>
     </Fragment>

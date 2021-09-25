@@ -2,6 +2,7 @@ import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { AppRoute } from "../../../utils/const"
 
 const link = {
   color: "#adb5bd",
@@ -22,14 +23,14 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link>
-              <NavLink exact to="/" style={link} activeStyle={linkActive}>
+              <NavLink exact to={ AppRoute.MAIN } style={link} activeStyle={linkActive}>
                 Главная
               </NavLink>
             </Nav.Link>
             <Nav.Link>
               <NavLink
                 exact
-                to="/initiatives"
+                to={ AppRoute.INITIATIVES }
                 style={link}
                 activeStyle={linkActive}
               >
@@ -39,7 +40,7 @@ const Header = () => {
             <Nav.Link>
               <NavLink
                 exact
-                to="/activities"
+                to={ AppRoute.ACTIVITIES }
                 style={link}
                 activeStyle={linkActive}
               >
@@ -47,7 +48,7 @@ const Header = () => {
               </NavLink>
             </Nav.Link>
             <Nav.Link>
-              <NavLink exact to="/lk" style={link} activeStyle={linkActive}>
+              <NavLink exact to={ AppRoute.ACCOUNT } style={link} activeStyle={linkActive}>
                 Личный кабинет
               </NavLink>
             </Nav.Link>
