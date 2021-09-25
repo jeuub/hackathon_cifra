@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect, Fragment} from "react";
 import { Nav, Navbar, NavDropdown, Button } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
@@ -48,26 +48,24 @@ const Header = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav style={{ width: "100%" }}>
-            <NavLink
-              className="nav-link"
-              exact
-              to={AppRoute.MAIN}
-              style={link}
-              activeStyle={linkActive}
-            >
-              Главная
-            </NavLink>
-            <NavLink
-              className="nav-link"
-              exact
-              to={AppRoute.INITIATIVES}
-              style={link}
-              activeStyle={linkActive}
-            >
-              Инициативы
-            </NavLink>
-
+          <Nav className="me-auto">
+              <NavLink 
+                className="nav-link" 
+                exact to={ AppRoute.MAIN } 
+                style={link} 
+                activeStyle={linkActive}
+              >
+                Главная
+              </NavLink>
+              <NavLink
+                className="nav-link"
+                exact
+                to={ AppRoute.INITIATIVES }
+                style={link}
+                activeStyle={linkActive}
+              >
+                Инициативы
+              </NavLink>
             <NavLink
               className="nav-link"
               exact
@@ -77,20 +75,24 @@ const Header = () => {
             >
               Мероприятия
             </NavLink>
-            {width >= 991 ? (
-              <NavDropdown
-                style={{ marginLeft: "auto" }}
-                title="Аккаунт"
-                id="collasible-nav-dropdown"
-              >
-                <NavLink
-                  className="dropdown-item"
-                  exact
-                  to={AppRoute.REGISTRATION}
-                  style={link}
-                  activeStyle={linkActive}
-                >
-                  Личный кабинет
+            {width<=991?
+              <Fragment>
+                <NavLink exact to={ AppRoute.ACCOUNT } className="nav-link" style={link} activeStyle={linkActive}>
+                  Личный кабинет 
+                </NavLink>
+                <Button className="col-4 col-md-2" >
+                  Выйти
+                </Button>
+              </Fragment>
+              :
+              null   
+            }
+          </Nav>
+          {width>991?
+          <Nav>
+            <NavDropdown title="Аккаунт" id="collasible-nav-dropdown">
+                <NavLink className="dropdown-item" exact to={ AppRoute.ACCOUNT } style={link} activeStyle={linkActive}>
+                  Личный кабинет 
                 </NavLink>
                 <NavDropdown.Divider />
 

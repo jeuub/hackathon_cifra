@@ -10,6 +10,8 @@ import Header from "../header/header";
 import RegistrationPage from "../../pages/registration-page/registration-page";
 import AuthPage from "../../pages/auth-page/auth-page";
 import Initiatives from "../../pages/initiatives/initiatives";
+import InitiativePage from "../../pages/initiative-page/initiative-page";
+import { AppRoute } from "../../utils/const"
 import FormInitiatives from "../../pages/form-initiatives/form-initiatives";
 import FormActivities from "../../pages/form-activities/form-activities";
 
@@ -17,8 +19,12 @@ const App = () => {
   return (
     <Router history={browserHistory}>
       <Header />
-      <Switch>
-        <Route exact path={AppRoute.MAIN} render={() => <MainPage />} />
+      <Switch> 
+        <Route 
+          exact 
+          path={AppRoute.MAIN} 
+          render={() => <MainPage />} 
+        />
         <Route
           exact
           path={AppRoute.ACTIVITIES}
@@ -50,6 +56,11 @@ const App = () => {
           path={AppRoute.ACTIVITY_FORM}
           render={() => <FormActivities />}
         />
+        <Route 
+          exact 
+          path={AppRoute.INITIATIVES_PAGE} 
+          render={() => <InitiativePage />} 
+         />
       </Switch>
       <Footer />
     </Router>
