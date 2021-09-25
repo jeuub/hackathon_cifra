@@ -18,7 +18,7 @@ const App = () => {
         <Route exact path="/activities" render={() => <ActivitiesPage />} />
         <Route exact path="/activity" render={() => <ActivityPage />} />
         <Route exact path="/registration" render={() => <RegistrationPage />} />
-        <Route exact path="/auth" render={() => <AuthPage />} />
+        <Route exact path="/authorization" render={() => <AuthPage />} />
       </Switch>
       <Footer />
     </Router>
