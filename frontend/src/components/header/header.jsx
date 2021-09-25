@@ -48,7 +48,7 @@ const Header = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav style={{ width: "100%" }}>
             <NavLink
               className="nav-link"
               exact
@@ -77,9 +77,28 @@ const Header = () => {
             >
               Мероприятия
             </NavLink>
-          </Nav>
-          {width > 991 ? (
-            <Nav>
+            {width >= 991 ? (
+              <NavDropdown
+                style={{ marginLeft: "auto" }}
+                title="Аккаунт"
+                id="collasible-nav-dropdown"
+              >
+                <NavLink
+                  className="dropdown-item"
+                  exact
+                  to={AppRoute.REGISTRATION}
+                  style={link}
+                  activeStyle={linkActive}
+                >
+                  Личный кабинет
+                </NavLink>
+                <NavDropdown.Divider />
+
+                <NavDropdown.Item>
+                  <Button className="m-auto w-100">Выйти</Button>
+                </NavDropdown.Item>
+              </NavDropdown>
+            ) : (
               <NavDropdown title="Аккаунт" id="collasible-nav-dropdown">
                 <NavLink
                   className="dropdown-item"
@@ -96,10 +115,8 @@ const Header = () => {
                   <Button className="m-auto w-100">Выйти</Button>
                 </NavDropdown.Item>
               </NavDropdown>
-            </Nav>
-          ) : (
-            false
-          )}
+            )}
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
