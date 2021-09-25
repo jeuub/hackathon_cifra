@@ -1,4 +1,5 @@
 from django.db import models
+from authentication.models import User
 
 PLANNED = 'Запланировано'
 TODAY = 'Сегодня'
@@ -12,10 +13,10 @@ STATUS_CHOICES = [
 
 class Event(models.Model):
     title = models.CharField(
-        verbose_name='Название мероприятия', max_length=150)
+        verbose_name='Название мероприятия', max_length=350)
     description = models.TextField(verbose_name='Описание мероприятия')
     date_of_event = models.DateField(verbose_name='Дата проведения', auto_now=False, auto_now_add=False)
-    place = models.CharField(verbose_name='Место проведения', max_length=150)
+    place = models.CharField(verbose_name='Место проведения', max_length=350)
     status = models.CharField(verbose_name='Статус', choices=STATUS_CHOICES, default=PLANNED, max_length=50)
 
     def __str__(self):
