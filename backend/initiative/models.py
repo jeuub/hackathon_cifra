@@ -9,7 +9,7 @@ class Initiative(models.Model):
     current_amount_of_signatures = models.IntegerField(
         verbose_name='Нынешнее количество подписей', default=0, blank=True)
     required_amount_of_signatures = models.IntegerField(
-        verbose_name='Необходимое количество подписей', default=0, blank=True)
+        verbose_name='Необходимое количество подписей', default=10, blank=True)
 
     def get_total_signatures(self):
         return self.signatures.count()
