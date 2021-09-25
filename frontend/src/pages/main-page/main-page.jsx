@@ -1,19 +1,48 @@
 import React from "react";
 import { Button, Col, Row, Container } from "react-bootstrap";
+import { useState, useEffect } from "react";
+
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height,
+  };
+}
+
+function useWindowDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState(
+    getWindowDimensions()
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return windowDimensions;
+}
 
 const MainPage = (props) => {
+  const { height, width } = useWindowDimensions();
   return (
     <Container>
       <Row>
         <Col>
           <Row>
-            <h1>Начните менять ваш город прямо сейчас</h1>
+            <h1 style={{ fontFamily: "Arial" }}>
+              Начните менять <strong>ваш</strong> город прямо сейчас
+            </h1>
           </Row>
-          <Row>
+          <Row style={{ width: 196 }}>
             <Button variant="primary">Создать инициативу</Button>
           </Row>
         </Col>
-        <Col></Col>
+        {width >= 768 ? <Col></Col> : null}
       </Row>
     </Container>
   );
