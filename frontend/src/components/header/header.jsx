@@ -2,6 +2,7 @@ import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { AppRoute } from "../../../utils/const"
 
 const link = {
   color: "#adb5bd",
@@ -13,26 +14,23 @@ const linkActive = {
 
 const Header = () => {
   return (
-    <Navbar bg="light" expand="lg" style={{ fontSize: 16 }}>
+    <Navbar bg="light" expand="lg" style={{ fontSize: 16}}>
       <Container>
         <Navbar.Brand style={{ fontSize: 18, color: "#d9534f" }}>
           Мой Город
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse
-          id="basic-navbar-nav"
-          style={{ background: "#f7f7f7", zIndex: 9999, width: "100vw" }}
-        >
-          <Nav className="me-auto" style={{ background: "#f7f7f7" }}>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
             <Nav.Link>
-              <NavLink exact to="/" style={link} activeStyle={linkActive}>
+              <NavLink exact to={ AppRoute.MAIN } style={link} activeStyle={linkActive}>
                 Главная
               </NavLink>
             </Nav.Link>
             <Nav.Link>
               <NavLink
                 exact
-                to="/initiative"
+                to={ AppRoute.INITIATIVES }
                 style={link}
                 activeStyle={linkActive}
               >
@@ -42,7 +40,7 @@ const Header = () => {
             <Nav.Link>
               <NavLink
                 exact
-                to="/activities"
+                to={ AppRoute.ACTIVITIES }
                 style={link}
                 activeStyle={linkActive}
               >
@@ -50,7 +48,7 @@ const Header = () => {
               </NavLink>
             </Nav.Link>
             <Nav.Link>
-              <NavLink exact to="/lk" style={link} activeStyle={linkActive}>
+              <NavLink exact to={ AppRoute.ACCOUNT } style={link} activeStyle={linkActive}>
                 Личный кабинет
               </NavLink>
             </Nav.Link>

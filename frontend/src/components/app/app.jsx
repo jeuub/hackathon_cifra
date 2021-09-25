@@ -8,6 +8,7 @@ import Footer from "../footer/footer";
 import Header from "../header/header";
 import RegistrationPage from "../../pages/registration-page/registration-page";
 import AuthPage from "../../pages/auth-page/auth-page";
+import Initiatives from "../../pages/initiatives/initiatives";
 
 const App = () => {
   return (
@@ -16,9 +17,10 @@ const App = () => {
       <Switch>
         <Route exact path="/" render={() => <MainPage />} />
         <Route exact path="/activities" render={() => <ActivitiesPage />} />
+        <Route exact path="/initiatives" render={() => <Initiatives />} />
         <Route exact path="/activity" render={() => <ActivityPage />} />
         <Route exact path="/registration" render={() => <RegistrationPage />} />
-        <Route exact path="/auth" render={() => <AuthPage />} />
+        <Route exact path="/authorization" render={() => <AuthPage />} />
       </Switch>
       <Footer />
     </Router>
