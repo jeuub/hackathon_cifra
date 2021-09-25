@@ -1,7 +1,7 @@
-import { loadActivities } from "../../services/action";
+import { loadActivities } from "./action";
 
 
-export const fetchActivityList = (dispatch, _getState, api) => {
+export const fetchActivityList = () => (dispatch, _getState, api) => {
   console.log(api);
   api
     .get('event/')

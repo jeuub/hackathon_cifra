@@ -6,7 +6,6 @@ const initialState = {
 };
 
 const appData = (state = initialState, action) => {
-  console.log(action.payload);
   switch (action.type) {
     case ActionType.LOAD_ACTIVITIES:
       return extend(state, {

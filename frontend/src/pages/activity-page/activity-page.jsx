@@ -3,13 +3,12 @@ import {connect} from "react-redux";
 import { Button, Row, Container, Carousel, Col, Form } from "react-bootstrap";
 import Comment from "../../components/comment/comment";
 import { fetchActivityList } from "../../store/actions/api-actions";
-import { loadActivities } from "../../services/action";
 
 const ActivityPage = (props) => {
-  // const { fetchActivity, activities } = props;
+  const { fetchActivity, activities } = props;
 
   useEffect(() => {
-    loadActivities();
+    fetchActivity();
   }, []);
 
   const src =
