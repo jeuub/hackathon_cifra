@@ -39,7 +39,7 @@ const App = () => {
           path={AppRoute.REGISTRATION}
           render={() => <RegistrationPage />}
         />
-        <Route exact path={AppRoute.REGISTRATION} render={() => <AuthPage />} />
+        <Route exact path={AppRoute.AUTH} render={() => <AuthPage />} />
         <Route
           exact
           path={AppRoute.INITIATIVE_FORM}
