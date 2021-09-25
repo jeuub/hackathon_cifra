@@ -89,36 +89,20 @@ const Header = () => {
             }
           </Nav>
           {width>991?
-          <Nav>
-            <NavDropdown title="Аккаунт" id="collasible-nav-dropdown">
-                <NavLink className="dropdown-item" exact to={ AppRoute.ACCOUNT } style={link} activeStyle={linkActive}>
-                  Личный кабинет 
-                </NavLink>
+            <Nav>
+                <NavDropdown title="Аккаунт" id="collasible-nav-dropdown">
+                  <NavLink className="dropdown-item" exact to={ AppRoute.ACCOUNT } style={link} activeStyle={linkActive}>
+                    Личный кабинет 
+                  </NavLink>
                 <NavDropdown.Divider />
-
                 <NavDropdown.Item>
                   <Button className="m-auto w-100">Выйти</Button>
                 </NavDropdown.Item>
               </NavDropdown>
-            ) : (
-              <NavDropdown title="Аккаунт" id="collasible-nav-dropdown">
-                <NavLink
-                  className="dropdown-item"
-                  exact
-                  to={AppRoute.REGISTRATION}
-                  style={link}
-                  activeStyle={linkActive}
-                >
-                  Личный кабинет
-                </NavLink>
-                <NavDropdown.Divider />
-
-                <NavDropdown.Item>
-                  <Button className="m-auto w-100">Выйти</Button>
-                </NavDropdown.Item>
-              </NavDropdown>
-            )}
-          </Nav>
+            </Nav>
+            :
+            null
+            }
         </Navbar.Collapse>
       </Container>
     </Navbar>
