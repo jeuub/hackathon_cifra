@@ -16,7 +16,7 @@ backend/media/
 
 #forntend
 
-Frontend/*.log*
-Frontend/node_modules/
-Frontend/public/bundle.js
-Frontend/public/bundle.js.map
+frontend/*.log*
+frontend/node_modules/
+frontend/public/bundle.js
+frontend/public/bundle.js.map
