@@ -20,7 +20,7 @@ const App = () => {
         <Route exact path="/initiatives" render={() => <Initiatives />} />
         <Route exact path="/activity" render={() => <ActivityPage />} />
         <Route exact path="/registration" render={() => <RegistrationPage />} />
-        <Route exact path="/auth" render={() => <AuthPage />} />
+        <Route exact path="/authorization" render={() => <AuthPage />} />
       </Switch>
       <Footer />
     </Router>
