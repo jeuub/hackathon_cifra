@@ -1,7 +1,7 @@
 {
-  "name": "moscow-polytech-portfoilio",
+  "name": "my-city",
   "version": "1.0.0",
-  "description": "Портфолио Московского Политеха",
+  "description": "Мой город",
   "scripts": {
     "eslint": "eslint --ext .jsx --ext .js src/",
     "build": "webpack --mode production",
