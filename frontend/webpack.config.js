@@ -7,7 +7,9 @@ module.exports = {
         path: path.resolve(__dirname, 'public')
     },
     devServer: {
-        contentBase: path.resolve(__dirname, 'public'),
+        static: {
+          directory: path.join(__dirname, 'public'),
+        },
         open: false,
         port: 8089,
         historyApiFallback: true,
@@ -20,6 +22,27 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                 },
+            },
+            {
+              test: /\.(sass|scss|css)$/,
+              use: [{
+                loader: 'style-loader',
+              }, {
+                loader: 'css-loader',
+              }, {
+                loader: 'postcss-loader',
+                options: {
+                  postcssOptions: {
+                    plugins: [
+                      [
+                        "autoprefixer"
+                      ]
+                    ]
+                  }
+                }
+              }, {
+                loader: 'sass-loader'
+              }]
             }
         ],
     },

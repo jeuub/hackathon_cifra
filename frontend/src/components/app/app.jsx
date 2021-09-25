@@ -1,7 +1,7 @@
 import React from "react";
 import {Switch, Route, Router} from "react-router-dom";
-import {AppRoute} from "../../utils/const";
 import browserHistory from "../../browser-history";
+import MainPage from "../main-page/main-page";
 
 
 const App = () => {
@@ -10,9 +10,9 @@ const App = () => {
       <Switch>
         <Route
           exact
-          path={'/'}
+          path='/'
           render={() => (
-            <div></div>
+            <MainPage/>
           )}
         />
       </Switch>
