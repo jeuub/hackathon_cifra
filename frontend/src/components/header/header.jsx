@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { Nav, Navbar, NavDropdown, Button } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { AppRoute } from "../../utils/const"
 
 
 const link = {
@@ -49,13 +50,13 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-              <NavLink className="nav-link" exact to="/" style={link} activeStyle={linkActive}>
+              <NavLink className="nav-link" exact to={ AppRoute.MAIN } style={link} activeStyle={linkActive}>
                 Главная
               </NavLink>
               <NavLink
                 className="nav-link"
                 exact
-                to="/initiatives"
+                to={ AppRoute.INITIATIVES }
                 style={link}
                 activeStyle={linkActive}
                 
@@ -90,7 +91,6 @@ const Header = () => {
           </Nav>
           :false  
           }
-          
 
         </Navbar.Collapse>
       </Container>

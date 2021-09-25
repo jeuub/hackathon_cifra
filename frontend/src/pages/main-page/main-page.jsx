@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Col, Row, Container, Card } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import CardMain from "../../components/app/card-main/card";
+import CardMain from "../../components/card-main/card";
 
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;

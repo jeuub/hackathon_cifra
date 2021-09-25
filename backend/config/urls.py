@@ -5,6 +5,7 @@ from django.urls import path, include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from django.conf.urls.static import static
+from authentication.views import index, index_pk
 
 from rest_framework.routers import DefaultRouter
 from initiative.views import AddSignature
@@ -18,7 +19,21 @@ router = DefaultRouter()
 router.register('initiative', InitiativeViewSet, basename='initiative')
 router.register('event', EventViewSet, basename='event')
 
+
 urlpatterns = [
+    path('', index),
+    path('initiatives/', index),
+    path('activities/', index),
+    path('initiative/:pk', index_pk),
+    path('activity/:pk', index),
+    path('initiative_form/', index),
+    path('activity_form/', index),
+    path('account/', index_pk),
+    path('edit/activity/:pk', index_pk),
+    path('edit/initiative/:pk', index),
+    path('authorization/', index),
+    path('registration/', index),
+
     path("api/", include(router.urls)),
     path('admin/', admin.site.urls),
 
