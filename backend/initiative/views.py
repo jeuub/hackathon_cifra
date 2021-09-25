@@ -1,4 +1,3 @@
-from django.http.response import HttpResponse
 from rest_framework import viewsets
 from rest_framework.response import Response
 from .models import Initiative, Gallery, Signature
