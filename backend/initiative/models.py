@@ -3,6 +3,7 @@ from authentication.models import User
 
 
 class Initiative(models.Model):
+    creator = models.ForeignKey("authentication.User", verbose_name="Создатель", on_delete=models.CASCADE, default=1)
     title = models.CharField(
         verbose_name='Название инициативы', max_length=150)
     description = models.TextField(verbose_name='Описание инициативы')
