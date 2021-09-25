@@ -33,12 +33,12 @@ const MainPage = (props) => {
     <Container>
       <Row>
         <Col>
-          <Row>
+          <Row style={{ width: "80%", margin: "0 auto", textAlign: "center" }}>
             <h1 style={{ fontFamily: "Arial" }}>
               Начните менять <strong>ваш</strong> город прямо сейчас
             </h1>
           </Row>
-          <Row style={{ width: 196 }}>
+          <Row style={{ width: "60%", margin: "10px auto" }}>
             <Button variant="primary">Создать инициативу</Button>
           </Row>
         </Col>
