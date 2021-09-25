@@ -20,12 +20,12 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link>
-              <NavLink to="/" style={link} activeStyle={linkActive}>
+              <NavLink exact to="/" style={link} activeStyle={linkActive}>
                 Главная
               </NavLink>
             </Nav.Link>
             <Nav.Link>
-              <NavLink to="/initiative" style={link} activeStyle={linkActive}>
+              <NavLink to="/initiatives" style={link} activeStyle={linkActive}>
                 Инициативы
               </NavLink>
             </Nav.Link>
