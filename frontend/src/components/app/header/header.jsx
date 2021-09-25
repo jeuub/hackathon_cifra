@@ -39,7 +39,7 @@ const Header = () => {
             <Nav.Link>
               <NavLink
                 exact
-                to="/activity"
+                to="/activities"
                 style={link}
                 activeStyle={linkActive}
               >
