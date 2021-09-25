@@ -13,29 +13,41 @@ const linkActive = {
 
 const Header = () => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" style={{ fontSize: 16, height: 50 }}>
       <Container>
-        <Navbar.Brand>Мой Город</Navbar.Brand>
+        <Navbar.Brand style={{ fontSize: 18, color: "#d9534f" }}>
+          Мой Город
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link>
-              <NavLink to="/" style={link} activeStyle={linkActive}>
+              <NavLink exact to="/" style={link} activeStyle={linkActive}>
                 Главная
               </NavLink>
             </Nav.Link>
             <Nav.Link>
-              <NavLink to="/initiative" style={link} activeStyle={linkActive}>
+              <NavLink
+                exact
+                to="/initiative"
+                style={link}
+                activeStyle={linkActive}
+              >
                 Инициативы
               </NavLink>
             </Nav.Link>
             <Nav.Link>
-              <NavLink to="/activity" style={link} activeStyle={linkActive}>
+              <NavLink
+                exact
+                to="/activities"
+                style={link}
+                activeStyle={linkActive}
+              >
                 Мероприятия
               </NavLink>
             </Nav.Link>
             <Nav.Link>
-              <NavLink to="/lk" style={link} activeStyle={linkActive}>
+              <NavLink exact to="/lk" style={link} activeStyle={linkActive}>
                 Личный кабинет
               </NavLink>
             </Nav.Link>
