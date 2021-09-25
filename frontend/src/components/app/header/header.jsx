@@ -13,9 +13,11 @@ const linkActive = {
 
 const Header = () => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" style={{ fontSize: 16, height: 50 }}>
       <Container>
-        <Navbar.Brand>Мой Город</Navbar.Brand>
+        <Navbar.Brand style={{ fontSize: 18, color: "#d9534f" }}>
+          Мой Город
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
