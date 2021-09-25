@@ -1,7 +1,8 @@
-import React from "react";
-import { Nav, Navbar } from "react-bootstrap";
+import React, {useState, useEffect} from "react";
+import { Nav, Navbar, NavDropdown, Button } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+
 
 const link = {
   color: "#adb5bd",
@@ -9,9 +10,36 @@ const link = {
 };
 const linkActive = {
   color: "#0d6efd",
+  background: 'transparent',
 };
 
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height,
+  };
+}
+
+function useWindowDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState(
+    getWindowDimensions()
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return windowDimensions;
+}
+
 const Header = () => {
+  const { height, width } = useWindowDimensions();
   return (
     <Navbar bg="light" expand="lg" style={{ fontSize: 16}}>
       <Container>
@@ -21,40 +49,53 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link>
-              <NavLink exact to="/" style={link} activeStyle={linkActive}>
+              <NavLink className="nav-link" exact to="/" style={link} activeStyle={linkActive}>
                 Главная
               </NavLink>
-            </Nav.Link>
-            <Nav.Link>
               <NavLink
+                className="nav-link"
                 exact
                 to="/initiatives"
                 style={link}
                 activeStyle={linkActive}
+                
               >
                 Инициативы
               </NavLink>
-            </Nav.Link>
-            <Nav.Link>
-              <NavLink
-                exact
-                to="/activities"
-                style={link}
-                activeStyle={linkActive}
-              >
-                Мероприятия
-              </NavLink>
-            </Nav.Link>
-            <Nav.Link>
-              <NavLink exact to="/lk" style={link} activeStyle={linkActive}>
-                Личный кабинет
-              </NavLink>
-            </Nav.Link>
+            
+            <NavLink
+              className="nav-link"
+              exact
+              to="/activities"
+              style={link}
+              activeStyle={linkActive}
+            >
+              Мероприятия
+            </NavLink>
           </Nav>
+          {width>991?
+          <Nav>
+            <NavDropdown title="Аккаунт" id="collasible-nav-dropdown">
+                <NavLink className="dropdown-item" exact to="/account" style={link} activeStyle={linkActive}>
+                  Личный кабинет 
+                </NavLink>
+              <NavDropdown.Divider />
+              
+              <NavDropdown.Item >
+                <Button className="m-auto w-100" >
+                  Выйти
+                </Button>
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          :false  
+          }
+          
+
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
 };
+
 export default Header;
