@@ -3,6 +3,10 @@ from rest_framework.response import Response
 from django.db import IntegrityError
 import datetime
 import jwt
+from django.shortcuts import render
+
+from initiative.models import Initiative
+from initiative.serializers import InitiativeSerializer
 
 from .serializers import UserSerializer
 from .models import User
@@ -66,10 +70,15 @@ class UserView(APIView):
         except jwt.ExpiredSignatureError:
             return Response({'message': 'Unauthenticated'})
 
-        user = User.objects.get(id=payload['id'])
-        serializer = UserSerializer(user)
+        data = {}
 
-        return Response(serializer.data)
+        user = User.objects.get(id=payload['id'])
+        data = UserSerializer(user).data
+
+        users_initiatives = Initiative.objects.filter(creator=user)
+        data['initiatives'] = InitiativeSerializer(users_initiatives, many=True).data
+
+        return Response(data)
 
 
 class LogoutView(APIView):
@@ -154,3 +163,10 @@ class DeleteView(APIView):
             }
 
         return response
+
+def index(request):
+    return render(request, 'index.html')
+
+
+def index_pk(request, pk):
+    return render(request, 'index.html')

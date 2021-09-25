@@ -25,7 +25,19 @@ class InitiativeViewSet(viewsets.ViewSet):
     def create(self, request):
         data = request.data
         files = request.FILES
+
+        token = request.COOKIES.get('token')
+
+        if not token:
+            return Response({'message': 'Unauthenticated'})
+
         try:
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            return Response({'message': 'Unauthenticated'})
+
+        try:
+            user = User.objects.get(id=payload['id'])
             required_signs = data['required_signatures']
             if not required_signs:
                 return Response({'message': 'filled not correctly'})
@@ -33,7 +45,7 @@ class InitiativeViewSet(viewsets.ViewSet):
             if required_signs < 10:
                 return Response({'message': 'amount of required signs is too low'})
             new_initiative = Initiative.objects.create(
-                    title=data['title'], description=data['description'], required_amount_of_signatures=required_signs)
+                    title=data['title'], description=data['description'], required_amount_of_signatures=required_signs, creator=user)
             if files:
                 for i in range(len(files)):
                     Gallery.objects.create(image=files[f'photo{i}'], initiative=new_initiative)
@@ -41,6 +53,8 @@ class InitiativeViewSet(viewsets.ViewSet):
             return Response({'message': 'done'})
         except KeyError:
             return Response({'message': 'not filled correctly'})
+        except User.DoesNotExist:
+            return Response({'message': 'Unauthenticated'})
 
 
 class AddSignature(APIView):
