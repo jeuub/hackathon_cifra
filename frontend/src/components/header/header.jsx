@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Nav, Navbar, NavDropdown, Button } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { AppRoute } from "../../utils/const"
-
+import { AppRoute } from "../../utils/const";
 
 const link = {
   color: "#adb5bd",
@@ -11,7 +10,7 @@ const link = {
 };
 const linkActive = {
   color: "#0d6efd",
-  background: 'transparent',
+  background: "transparent",
 };
 
 function getWindowDimensions() {
@@ -42,7 +41,7 @@ function useWindowDimensions() {
 const Header = () => {
   const { height, width } = useWindowDimensions();
   return (
-    <Navbar bg="light" expand="lg" style={{ fontSize: 16}}>
+    <Navbar bg="light" expand="lg" style={{ fontSize: 16 }}>
       <Container>
         <Navbar.Brand style={{ fontSize: 18, color: "#d9534f" }}>
           Мой Город
@@ -50,48 +49,57 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-              <NavLink className="nav-link" exact to={ AppRoute.MAIN } style={link} activeStyle={linkActive}>
-                Главная
-              </NavLink>
-              <NavLink
-                className="nav-link"
-                exact
-                to={ AppRoute.INITIATIVES }
-                style={link}
-                activeStyle={linkActive}
-                
-              >
-                Инициативы
-              </NavLink>
-            
             <NavLink
               className="nav-link"
               exact
-              to={ AppRoute.ACTIVITIES }
+              to={AppRoute.MAIN}
+              style={link}
+              activeStyle={linkActive}
+            >
+              Главная
+            </NavLink>
+            <NavLink
+              className="nav-link"
+              exact
+              to={AppRoute.INITIATIVES}
+              style={link}
+              activeStyle={linkActive}
+            >
+              Инициативы
+            </NavLink>
+
+            <NavLink
+              className="nav-link"
+              exact
+              to={AppRoute.ACTIVITIES}
               style={link}
               activeStyle={linkActive}
             >
               Мероприятия
             </NavLink>
           </Nav>
-          {width>991?
-          <Nav>
-            <NavDropdown title="Аккаунт" id="collasible-nav-dropdown">
-                <NavLink className="dropdown-item" exact to={ AppRoute.ACCOUNT } style={link} activeStyle={linkActive}>
-                  Личный кабинет 
+          {width > 991 ? (
+            <Nav>
+              <NavDropdown title="Аккаунт" id="collasible-nav-dropdown">
+                <NavLink
+                  className="dropdown-item"
+                  exact
+                  to={AppRoute.REGISTRATION}
+                  style={link}
+                  activeStyle={linkActive}
+                >
+                  Личный кабинет
                 </NavLink>
-              <NavDropdown.Divider />
-              
-              <NavDropdown.Item >
-                <Button className="m-auto w-100" >
-                  Выйти
-                </Button>
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          :false  
-          }
+                <NavDropdown.Divider />
 
+                <NavDropdown.Item>
+                  <Button className="m-auto w-100">Выйти</Button>
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          ) : (
+            false
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>
