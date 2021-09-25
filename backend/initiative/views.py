@@ -26,15 +26,20 @@ class InitiativeViewSet(viewsets.ViewSet):
         data = request.data
         files = request.FILES
         try:
+            required_signs = data['required_signatures']
+            if not required_signs:
+                return Response({'message': 'filled not correctly'})
+            required_signs = int(required_signs)
+            if required_signs < 10:
+                return Response({'message': 'amount of required signs is too low'})
             new_initiative = Initiative.objects.create(
-                    title=data['title'], description=data['description'])
+                    title=data['title'], description=data['description'], required_amount_of_signatures=required_signs)
             if files:
                 for i in range(len(files)):
                     Gallery.objects.create(image=files[f'photo{i}'], initiative=new_initiative)
             new_initiative.save()
             return Response({'message': 'done'})
         except KeyError:
-            new_initiative.delete()
             return Response({'message': 'not filled correctly'})
 
 
@@ -49,13 +54,16 @@ class AddSignature(APIView):
             payload = jwt.decode(token, 'secret', algorithms=['HS256'])
         except jwt.ExpiredSignatureError:
             return Response({'message': 'Unauthenticated'})
-
-        user = User.objects.get(id=payload['id'])
-        init = Initiative.objects.get(id=pk)
         try:
+            user = User.objects.get(id=payload['id'])
+            init = Initiative.objects.get(id=pk)
             Signature.objects.get(initiative=init, user=user)
         except Signature.DoesNotExist:
             return Response({'message':'not signed'})
+        except User.DoesNotExist:
+            return Response({'message': 'Unauthenticated'})
+        except Initiative.DoesNotExist:
+            return Response({'message':'initiative not found'})
         return Response({'message': 'signed'})
 
     def post(self, request, pk):
@@ -69,13 +77,17 @@ class AddSignature(APIView):
         except jwt.ExpiredSignatureError:
             return Response({'message': 'Unauthenticated'})
 
-        user = User.objects.get(id=payload['id'])
-        init = Initiative.objects.get(id=pk)
         try:
+            user = User.objects.get(id=payload['id'])
+            init = Initiative.objects.get(id=pk)
             Signature.objects.get(initiative=init, user=user)
         except Signature.DoesNotExist:
             Signature.objects.create(initiative=init, user=user)
             return Response({'message':'created'})
+        except User.DoesNotExist:
+            return Response({'message': 'Unauthenticated'})
+        except Initiative.DoesNotExist:
+            return Response({'message':'initiative not found'})
         return Response({'message': 'already exist'})
 
     def delete(self, request, pk):
@@ -89,13 +101,16 @@ class AddSignature(APIView):
         except jwt.ExpiredSignatureError:
             return Response({'message': 'Unauthenticated'})
 
-        user = User.objects.get(id=payload['id'])
-        init = Initiative.objects.get(id=pk)
-
         try:
+            user = User.objects.get(id=payload['id'])
+            init = Initiative.objects.get(id=pk)
             signature = Signature.objects.get(initiative=init, user=user)
             signature.delete()
         except Signature.DoesNotExist:
             return Response({'message': 'signature not found'})
+        except User.DoesNotExist:
+            return Response({'message': 'Unauthenticated'})
+        except Initiative.DoesNotExist:
+            return Response({'message':'initiative not found'})
 
         return Response({'message': 'success'})
