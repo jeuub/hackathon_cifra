@@ -13,14 +13,17 @@ const linkActive = {
 
 const Header = () => {
   return (
-    <Navbar bg="light" expand="lg" style={{ fontSize: 16, height: 50 }}>
+    <Navbar bg="light" expand="lg" style={{ fontSize: 16 }}>
       <Container>
         <Navbar.Brand style={{ fontSize: 18, color: "#d9534f" }}>
           Мой Город
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+        <Navbar.Collapse
+          id="basic-navbar-nav"
+          style={{ background: "#f7f7f7", zIndex: 9999, width: "100vw" }}
+        >
+          <Nav className="me-auto" style={{ background: "#f7f7f7" }}>
             <Nav.Link>
               <NavLink exact to="/" style={link} activeStyle={linkActive}>
                 Главная

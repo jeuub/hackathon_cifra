@@ -4,8 +4,8 @@ import browserHistory from "../../browser-history";
 import ActivitiesPage from "../../pages/activities-page/activities-page";
 import ActivityPage from "../../pages/activity-page/activity-page";
 import MainPage from "../../pages/main-page/main-page";
-import Footer from "./footer/footer";
-import Header from "./header/header";
+import Footer from "../footer/footer";
+import Header from "../header/header";
 import RegistrationPage from "../../pages/registration-page/registration-page";
 import AuthPage from "../../pages/auth-page/auth-page";
 
