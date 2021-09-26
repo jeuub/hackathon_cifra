@@ -12,3 +12,17 @@ export const AppRoute = {
   AUTH: '/authorization',
   REGISTRATION: '/registration',
 }
+
+export const ApiInformation = {
+  BASE_URL: `http://3.69.51.255/api/`,
+  TIMEOUT: 5000,
+  WITH_CREDENTIALS: true
+}
+
+export const HttpCode = {
+  UNAUTHORIZED: 401
+};
+
+export const ActionType = {
+  LOAD_ACTIVITIES: `LOAD_ACTIVITIES`,
+}
