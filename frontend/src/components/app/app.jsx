@@ -9,20 +9,59 @@ import Header from "../header/header";
 import RegistrationPage from "../../pages/registration-page/registration-page";
 import AuthPage from "../../pages/auth-page/auth-page";
 import Initiatives from "../../pages/initiatives/initiatives";
+import InitiativePage from "../../pages/initiative-page/initiative-page";
+import { AppRoute } from "../../utils/const"
+import FormInitiatives from "../../pages/form-initiatives/form-initiatives";
+import FormActivities from "../../pages/form-activities/form-activities";
 import AccountPage from "../../pages/account-page/account-page";
 
 const App = () => {
   return (
     <Router history={browserHistory}>
       <Header />
-      <Switch>
-        <Route exact path="/" render={() => <MainPage />} />
-        <Route exact path="/activities" render={() => <ActivitiesPage />} />
-        <Route exact path="/initiatives" render={() => <Initiatives />} />
-        <Route exact path="/activity" render={() => <ActivityPage />} />
-        <Route exact path="/registration" render={() => <RegistrationPage />} />
-        <Route exact path="/authorization" render={() => <AuthPage />} />
-        <Route exact path="/account" render={() => <AccountPage />} />
+      <Switch> 
+        <Route 
+          exact 
+          path={AppRoute.MAIN} 
+          render={() => <MainPage />} 
+        />
+        <Route
+          exact
+          path={AppRoute.ACTIVITIES}
+          render={() => <ActivitiesPage />}
+        />
+        <Route
+          exact
+          path={AppRoute.INITIATIVES}
+          render={() => <Initiatives />}
+        />
+        <Route
+          exact
+          path={AppRoute.ACTIVITY_PAGE}
+          render={() => <ActivityPage />}
+        />
+        <Route
+          exact
+          path={AppRoute.REGISTRATION}
+          render={() => <RegistrationPage />}
+        />
+        <Route exact path={AppRoute.AUTH} render={() => <AuthPage />} />
+        <Route
+          exact
+          path={AppRoute.INITIATIVE_FORM}
+          render={() => <FormInitiatives />}
+        />
+        <Route
+          exact
+          path={AppRoute.ACTIVITY_FORM}
+          render={() => <FormActivities />}
+        />
+        <Route 
+          exact 
+          path={AppRoute.INITIATIVES_PAGE} 
+          render={() => <InitiativePage />} 
+         />
+         <Route exact path={AppRoute.ACCOUNT}  render={() => <AccountPage />} />
       </Switch>
       <Footer />
     </Router>

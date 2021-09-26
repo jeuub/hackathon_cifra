@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Col, Row, Container, Card } from "react-bootstrap";
+import { AppRoute } from "../../utils/const";
 import CardActivity from "../../components/card-activity/card";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
@@ -21,16 +22,28 @@ const ActivitiesPage = (props) => {
           Мероприятия
         </h2>
       </Row>
-      <Link to="/activity" style={{ textDecoration: "none", color: "black" }}>
+      <Link
+        to={AppRoute.ACTIVITY_PAGE}
+        style={{ textDecoration: "none", color: "black" }}
+      >
         <CardActivity src={src} />
       </Link>
-      <Link to="/activity" style={{ textDecoration: "none", color: "black" }}>
+      <Link
+        to={AppRoute.ACTIVITY_PAGE}
+        style={{ textDecoration: "none", color: "black" }}
+      >
         <CardActivity src={src} />
       </Link>
-      <Link to="/activity" style={{ textDecoration: "none", color: "black" }}>
+      <Link
+        to={AppRoute.ACTIVITY_PAGE}
+        style={{ textDecoration: "none", color: "black" }}
+      >
         <CardActivity src={src} />
       </Link>
-      <Link to="/activity" style={{ textDecoration: "none", color: "black" }}>
+      <Link
+        to={AppRoute.ACTIVITY_PAGE}
+        style={{ textDecoration: "none", color: "black" }}
+      >
         <CardActivity src={src} />
       </Link>
       <Row>
