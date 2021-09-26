@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Switch, Route, Router } from "react-router-dom";
 import browserHistory from "../../browser-history";
 import ActivitiesPage from "../../pages/activities-page/activities-page";
@@ -10,25 +10,24 @@ import RegistrationPage from "../../pages/registration-page/registration-page";
 import AuthPage from "../../pages/auth-page/auth-page";
 import Initiatives from "../../pages/initiatives/initiatives";
 import InitiativePage from "../../pages/initiative-page/initiative-page";
-import { AppRoute } from "../../utils/const"
+import { AppRoute } from "../../utils/const";
 import FormInitiatives from "../../pages/form-initiatives/form-initiatives";
 import FormActivities from "../../pages/form-activities/form-activities";
 import AccountPage from "../../pages/account-page/account-page";
 
 const App = () => {
+  const [activity, setActivity] = useState();
   return (
     <Router history={browserHistory}>
       <Header />
-      <Switch> 
-        <Route 
-          exact 
-          path={AppRoute.MAIN} 
-          render={() => <MainPage />} 
-        />
+      <Switch>
+        <Route exact path={AppRoute.MAIN} render={() => <MainPage />} />
         <Route
           exact
           path={AppRoute.ACTIVITIES}
-          render={() => <ActivitiesPage />}
+          render={(props) => (
+            <ActivitiesPage setActivity={setActivity} {...props} />
+          )}
         />
         <Route
           exact
@@ -38,7 +37,7 @@ const App = () => {
         <Route
           exact
           path={AppRoute.ACTIVITY_PAGE}
-          render={() => <ActivityPage />}
+          render={(props) => <ActivityPage activity={activity} {...props} />}
         />
         <Route
           exact
