@@ -14,7 +14,7 @@ export const AppRoute = {
 }
 
 export const ApiInformation = {
-  BASE_URL: `http://3.69.51.255/api/`,
+  BASE_URL: `http://1ca2-85-249-39-223.ngrok.io/api/`,
   TIMEOUT: 5000,
   WITH_CREDENTIALS: true
 }
