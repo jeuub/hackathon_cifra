@@ -13,6 +13,7 @@ import InitiativePage from "../../pages/initiative-page/initiative-page";
 import { AppRoute } from "../../utils/const";
 import FormInitiatives from "../../pages/form-initiatives/form-initiatives";
 import FormActivities from "../../pages/form-activities/form-activities";
+import AccountPage from "../../pages/account-page/account-page";
 
 const App = () => {
   const [activity, setActivity] = useState();
@@ -54,11 +55,12 @@ const App = () => {
           path={AppRoute.ACTIVITY_FORM}
           render={() => <FormActivities />}
         />
-        <Route
-          exact
-          path={AppRoute.INITIATIVES_PAGE}
-          render={() => <InitiativePage />}
-        />
+        <Route 
+          exact 
+          path={AppRoute.INITIATIVES_PAGE} 
+          render={() => <InitiativePage />} 
+         />
+         <Route exact path={AppRoute.ACCOUNT}  render={() => <AccountPage />} />
       </Switch>
       <Footer />
     </Router>
