@@ -1,8 +1,8 @@
 # FALLOUT
 
 ## Ссылки:
-[Дизайн и прототип](https://www.figma.com/file/BC3YYpPG68iA4521akfOkk/template?node-id=0%3A1)
-[Опубликованное решение](http://3.69.51.255/)
+- [Дизайн и прототип](https://www.figma.com/file/BC3YYpPG68iA4521akfOkk/template?node-id=0%3A1)
+- [Опубликованное решение](http://3.69.51.255/)
 
 ## Библиотеки, фреймворки и технологии:
 
