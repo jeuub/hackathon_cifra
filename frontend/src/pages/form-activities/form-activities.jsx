@@ -76,7 +76,7 @@ const FormActivities = (props) => {
         </Col>
         {width >= 768 ? (
           <Col>
-            <h2>Похожие мероприятие</h2>
+            <h2>Похожие мероприятия</h2>
             <Row style={{ width: "100%", margin: "20px auto" }} xs={1} md={3}>
               <CardMain src={src} />
               <CardMain src={src} />
