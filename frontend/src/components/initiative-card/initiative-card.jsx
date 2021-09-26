@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { Card, ProgressBar, Col } from "react-bootstrap";
 
 const InitiativeCard = (props) => {
-  React.useEffect(()=>{console.log(props);},[])
   return (
     <Col style={{ marginBlockEnd: 20 }}>
       <Card style={{ width: '100%' }}>

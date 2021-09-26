@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Row, Container} from "react-bootstrap";
-import { useState, useEffect } from "react";
 import {connect} from "react-redux";
 import {useDispatch, useSelector} from 'react-redux'
 
@@ -16,11 +15,11 @@ function getWindowDimensions() {
 }
 
 function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState(
+  const [windowDimensions, setWindowDimensions] = React.useState(
     getWindowDimensions()
   );
 
-  useEffect(() => {
+  React.useEffect(() => {
     function handleResize() {
       setWindowDimensions(getWindowDimensions());
     }
@@ -33,13 +32,14 @@ function useWindowDimensions() {
 }
 
 const initiatives = (props) => {
-  const dispatch = useDispatch()
-  const cash = useSelector(state => state.DATA.initiatives)
+  const [data, setData] = React.useState([])
 
   const { fetchInitiative, initiatives } = props;
 
-  useEffect(() => {
-    fetchInitiative();
+  React.useEffect(() => {
+    fetch('http://172.31.3.166:8000/api/initiative/')
+    .then(res => res.json())
+    .then(data => setData(data))
   }, []);
 
   const { height, width } = useWindowDimensions();
@@ -47,7 +47,7 @@ const initiatives = (props) => {
     <Container>
       <h1 className="text-center">Инициативы</h1>
       <Row xs={1} md={3}>
-      {cash.map(initiative => {
+      {data.map(initiative => {
         return (
             <InitiativeCard initiatives={initiative} key={initiative.id} />
             )
@@ -62,16 +62,17 @@ const initiatives = (props) => {
   );
 };
 
-const mapStateToProps = ({ DATA }) => ({
-  initiatives: DATA.initiatives,
-});
+export default initiatives
+// const mapStateToProps = ({ DATA }) => ({
+//   initiatives: DATA.initiatives,
+// });
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchInitiative() {
-    dispatch(fetchInitiativesList());
-  },
-});
+// const mapDispatchToProps = (dispatch) => ({
+//   fetchInitiative() {
+//     dispatch(fetchInitiativesList());
+//   },
+// });
 
-export {initiatives};
-export default connect(mapStateToProps, mapDispatchToProps)(initiatives);
+// export {initiatives};
+// export default connect(mapStateToProps, mapDispatchToProps)(initiatives);
 
