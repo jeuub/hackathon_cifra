@@ -23,25 +23,25 @@ const ActivitiesPage = (props) => {
         </h2>
       </Row>
       <Link
-        path={AppRoute.ACTIVITY_PAGE}
+        to={AppRoute.ACTIVITY_PAGE}
         style={{ textDecoration: "none", color: "black" }}
       >
         <CardActivity src={src} />
       </Link>
       <Link
-        path={AppRoute.ACTIVITY_PAGE}
+        to={AppRoute.ACTIVITY_PAGE}
         style={{ textDecoration: "none", color: "black" }}
       >
         <CardActivity src={src} />
       </Link>
       <Link
-        path={AppRoute.ACTIVITY_PAGE}
+        to={AppRoute.ACTIVITY_PAGE}
         style={{ textDecoration: "none", color: "black" }}
       >
         <CardActivity src={src} />
       </Link>
       <Link
-        path={AppRoute.ACTIVITY_PAGE}
+        to={AppRoute.ACTIVITY_PAGE}
         style={{ textDecoration: "none", color: "black" }}
       >
         <CardActivity src={src} />
