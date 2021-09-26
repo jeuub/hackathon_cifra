@@ -27,11 +27,11 @@ const AccountPage = (props) => {
           <Row className="justify-content-around mb-3">
             <h1 className="col-10">Личный кабинет</h1>
             <LinkContainer to={ AppRoute.MAIN }>
-              <Button variant="light text-danger" className="col-1">
+              <Button variant="link text-danger" className="col-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
+                  width="24"
+                  height="24"
                   fill="currentColor"
                   className="bi bi-box-arrow-in-right"
                   viewBox="0 0 16 16"
@@ -52,13 +52,13 @@ const AccountPage = (props) => {
             <Col xs={5} sm={3} style={{ position: "relative" }}>
               <Image src={profilePhoto} roundedCircle fluid/>
               <svg
-                style={{ position: "absolute", bottom: "2vw", right: "2vw", }}
+                style={{ position: "absolute", bottom: "10px", right: "10px", }}
                 width="10%"
                 height="24"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                stroke="currentColor"
+                stroke="red"
+                fill="white"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -72,12 +72,16 @@ const AccountPage = (props) => {
             <h2 className="text-center">{fullname}</h2>
           </Row>
           <Row className="justify-content-around mb-3">
-            <Button size="lg" variant="primary" className="col-5">
-              + инициатива
-            </Button>
-            <Button size="lg" variant="success" className="col-5">
-              + мероприятие
-            </Button>
+            <LinkContainer to={AppRoute.INITIATIVE_FORM}>
+              <Button size="lg" variant="primary" className="col-5">
+                + инициатива
+              </Button>
+            </LinkContainer>
+            <LinkContainer to={AppRoute.ACTIVITY_FORM}>
+              <Button size="lg" variant="success" className="col-5">
+                + мероприятие
+              </Button>
+            </LinkContainer>
           </Row>
           <Row className="justify-content-center mb-5">
             <Button size="lg" variant="danger" className="col-8">
@@ -87,28 +91,52 @@ const AccountPage = (props) => {
         </Col>
         <Col >
           {/*  defaultActiveKey="0" */}
-          <Accordion>
+          <Accordion className="d-md-none">
             <Accordion.Item eventKey="0">
               <Accordion.Header>Инициативы</Accordion.Header>
               <Accordion.Body>
-                <Row style={{ width: "80%", margin: "20px auto" }} xs={1} md={3}>
-                  <CardMain src={src} />
-                  <CardMain src={src} />
-                  <CardMain src={src} />
+                <Row xs={1} md={3}>
+                  <LinkContainer to={AppRoute.EDIT_INITIATIVE_FORM}>
+                    <CardMain src={src} />
+                  </LinkContainer>
+                  <LinkContainer to={AppRoute.EDIT_INITIATIVE_FORM}>
+                    <CardMain src={src} />
+                  </LinkContainer>
+                  <LinkContainer to={AppRoute.EDIT_INITIATIVE_FORM}>
+                    <CardMain src={src} />
+                  </LinkContainer>
                 </Row>
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="1">
               <Accordion.Header>Мероприятия</Accordion.Header>
               <Accordion.Body>
-                <Row style={{ width: "80%", margin: "20px auto" }} xs={1} md={3}>
-                  <CardMain src={src} />
-                  <CardMain src={src} />
-                  <CardMain src={src} />
+                <Row xs={1} md={3}>
+                  <LinkContainer to={AppRoute.EDIT_ACTIVITY_FORM}>
+                    <CardMain src={src} />
+                  </LinkContainer>
+                  <LinkContainer to={AppRoute.EDIT_ACTIVITY_FORM}>
+                    <CardMain src={src} />
+                  </LinkContainer>
+                  <LinkContainer to={AppRoute.EDIT_ACTIVITY_FORM}>
+                    <CardMain src={src} />
+                  </LinkContainer>
                 </Row>
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>
+          <h2 className="text-center">Инициативы</h2>
+          <Row style={{ width: "100%", margin: "20px auto" }} xs={1} md={3}>
+              <CardMain src={src} />
+              <CardMain src={src} />
+              <CardMain src={src} />
+          </Row>
+          <h2 className="text-center">Мероприятия</h2>
+          <Row style={{ width: "100%", margin: "20px auto" }} xs={1} md={3}>
+              <CardMain src={src} />
+              <CardMain src={src} />
+              <CardMain src={src} />
+          </Row>
         </Col>
       </Row>
     </Container>
