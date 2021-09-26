@@ -2,7 +2,8 @@ import { ActionType } from "../../../utils/const";
 import { extend } from "../../../utils/utils";
 
 const initialState = {
-  activities: [{ "id": 1, "date_of_event": "26-09-2021", "title": "sadasd", "description": "asdasdas", "place": "asdasdas", "status": "Запланировано" }, { "id": 2, "date_of_event": "26-09-2021", "title": "sadasd", "description": "asdasdas", "place": "asdasdas", "status": "Запланировано" }],
+  activities: [],
+  initiatives: []
 };
 
 const appData = (state = initialState, action) => {
@@ -10,6 +11,10 @@ const appData = (state = initialState, action) => {
     case ActionType.LOAD_ACTIVITIES:
       return extend(state, {
         activities: action.payload,
+      });
+    case ActionType.LOAD_INITIATIVES:
+      return extend(state, {
+        initiatives: action.payload,
       });
   }
   return state;

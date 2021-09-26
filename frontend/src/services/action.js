@@ -6,3 +6,10 @@ export const loadActivities = (activities) => {
   type: ActionType.LOAD_ACTIVITIES,
   payload: activities
 })};
+
+export const loadInitiatives = (initiatives) => {
+  console.log(initiatives);
+  ({
+  type: ActionType.LOAD_INITIATIVES,
+  payload: initiatives
+})};

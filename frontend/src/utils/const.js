@@ -25,4 +25,5 @@ export const HttpCode = {
 
 export const ActionType = {
   LOAD_ACTIVITIES: `LOAD_ACTIVITIES`,
+  LOAD_INITIATIVES: `LOAD_INITIATIVES`
 }

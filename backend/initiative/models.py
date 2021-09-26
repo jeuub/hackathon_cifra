@@ -1,7 +1,6 @@
 from django.db import models
 from authentication.models import User
 
-
 class Initiative(models.Model):
     creator = models.ForeignKey("authentication.User", verbose_name="Создатель", on_delete=models.CASCADE, default=1)
     title = models.CharField(
