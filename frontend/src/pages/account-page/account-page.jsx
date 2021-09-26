@@ -50,7 +50,7 @@ const AccountPage = (props) => {
           </Row>
           <Row className="justify-content-around mb-2">
             <Col xs={5} sm={3} style={{ position: "relative" }}>
-              <Image src={profilePhoto} roundedCircle fluid/>
+              <Image src={profilePhoto} width="65" height="65" roundedCircle fluid/>
               <svg
                 style={{ position: "absolute", bottom: "10px", right: "10px", }}
                 width="10%"
