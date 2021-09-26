@@ -74,12 +74,12 @@ const AccountPage = (props) => {
           <Row className="justify-content-around mb-3">
             <LinkContainer to={AppRoute.INITIATIVE_FORM}>
               <Button size="lg" variant="primary" className="col-5">
-                + инициатива
+                + Инициатива
               </Button>
             </LinkContainer>
             <LinkContainer to={AppRoute.ACTIVITY_FORM}>
               <Button size="lg" variant="success" className="col-5">
-                + мероприятие
+                + Мероприятие
               </Button>
             </LinkContainer>
           </Row>
